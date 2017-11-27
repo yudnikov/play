@@ -1,0 +1,18 @@
+@import forms.RecordForm
+@import models.enums.Direction
+@(form: Form[RecordForm.RecordData], postUrl: Call, allowDirection: Boolean = false)(implicit request: MessagesRequestHeader)
+
+<section>
+    <div>
+        @helper.form(postUrl) {
+            @helper.CSRF.formField
+            <div>id: @form("id").value.getOrElse("")</div>
+            <div class="@{if(allowDirection) "visible" else "invisible"}">
+                @helper.inputRadioGroup(form("direction"), Seq("+" -> "+", "-" -> "-"))
+            </div>
+            @helper.inputDate(form("date"))
+            @helper.inputText(form("amount"))
+            <button>Save</button>
+        }
+    </div>
+</section>

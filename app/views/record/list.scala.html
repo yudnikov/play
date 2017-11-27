@@ -1,0 +1,31 @@
+@import enums.Direction
+@import org.joda.time.format.DateTimeFormatter
+@(records: List[Record])(implicit formatter: DateTimeFormatter)
+
+<section>
+    <div class="my-toolbar">
+        <form action="@routes.RecordController.createProfit()">
+            <button>+</button>
+        </form>
+        <form action="@routes.RecordController.createConsume()">
+            <button>-</button>
+        </form>
+    </div>
+    <table class="my-table">
+        <tr>
+            <td>id</td>
+            <td>+/-</td>
+            <td>Date</td>
+            <td>Amount</td>
+        </tr>
+        @for(record <- records) {
+            <tr class="@{if(record.direction == Direction.Plus) "profit" else "expense"}">
+                <td>@record.id</td>
+                <td>@record.direction.code</td>
+                <td>@formatter.print(record.date)</td>
+                <td>@record.amount</td>
+                <td><a href="@{routes.RecordController.edit(record.id)}">Edit</a></td>
+            </tr>
+        }
+    </table>
+</section>

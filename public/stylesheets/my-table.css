@@ -1,0 +1,40 @@
+body {
+    margin: 1em;
+}
+
+.profit {
+    background-color: #ddffdd;
+}
+
+.expense {
+    background-color: #ffdddd;
+}
+
+.my-toolbar form button {
+    -webkit-appearance: button;
+    width: 3em;
+    text-align: center;
+    font-size: medium;
+    text-decoration: none;
+}
+
+.my-toolbar form {
+    float: left;
+    padding-right: 0.5em;
+}
+
+.my-table {
+    clear: both;
+}
+
+.my-table tr td {
+    padding: 0.5em;
+}
+
+.visible {
+    display: block;
+}
+
+.invisible {
+    display: none;
+}

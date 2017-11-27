@@ -1,0 +1,10 @@
+@(posts: List[Post])
+
+<section>
+    @for(post <- posts) {
+        <article>
+            <div>@post.header</div>
+            <div>@post.content</div>
+        </article>
+    }
+</section>
